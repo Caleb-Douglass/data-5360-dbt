@@ -22,3 +22,15 @@ models:
 
   - name: sales
     description: "Oliver's Sales Analysis Model"
+    
+  - name: stg_employee_certifications
+    description: |
+      Stages employee certification records and extracts the
+      certification name, cost, and awarded date from certification_json.
+
+  - name: fact_certification
+    description: |
+      Employee certification fact table.
+      Each row represents one certification awarded to one employee
+      on a particular date, with its associated certification cost.
+      Reuses the employee and date dimensions.
