@@ -4,6 +4,11 @@ version: 2
 models:
   - name: oliver_dim_customer
     description: "Oliver's Customer Dimension"
+    columns:
+      - name: cust_key
+        tests:
+          - unique
+          - not_null
 
   - name: oliver_dim_date
     description: "Oliver's Date Dimension"
