@@ -10,6 +10,14 @@ models:
           - unique
           - not_null
 
+      - name: state
+        tests:
+          - accepted_values:
+              arguments:
+                values:
+                  - "Utah"
+                  - "Wyoming"
+
   - name: oliver_dim_date
     description: "Oliver's Date Dimension"
 
@@ -24,7 +32,14 @@ models:
 
   - name: fact_sales
     description: "Oliver's Sales Fact Table"
-
+    columns:
+      - name: cust_key
+        tests:
+          - relationships:
+              arguments:
+                to: ref('oliver_dim_customer')
+                field: cust_key
+                
   - name: sales
     description: "Oliver's Sales Analysis Model"
     
